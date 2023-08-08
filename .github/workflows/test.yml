@@ -6,12 +6,15 @@ on:
       - main
 jobs:
   check-commit-message:
-    if: ${{ github.event.head_commit.message }} == *"[dev]"*
+
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
       - name: Check commit message
         run: |
+          if [[ ${{ github.event.head_commit.message }} == *"[dev]"* ]]; then
             echo "now using dev action by ${GITHUB_ACTOR}"
+          elif [[ ${{ github.event.head_commit.message }} == *"[ken]"* ]]; then
+            echo "now using ken action by ${GITHUB_ACTOR}"
+          else
+            echo "no action"
+          fi
