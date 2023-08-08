@@ -20,3 +20,4 @@ jobs:
             echo "now using ken action by ${GITHUB_ACTOR}"
           else
             echo "no action"
+          fi
