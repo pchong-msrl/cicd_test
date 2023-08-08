@@ -5,6 +5,8 @@ on:
     branches:
       - main
 
+if: ${{ github.event.head_commit.message }} == *"[dev]"* || ${{ github.event.head_commit.message }} == *"[ken]"*
+
 jobs:
   check-commit-message:
     runs-on: ubuntu-latest
@@ -14,10 +16,4 @@ jobs:
 
       - name: Check commit message
         run: |
-          if true; then
             echo "now using dev action by ${GITHUB_ACTOR}"
-          elif [[ ${{ github.event.head_commit.message }} == *"[ken]"* ]]; then
-            echo "now using ken action by ${GITHUB_ACTOR}"
-          else
-            echo "no action"
-          fi
