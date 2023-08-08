@@ -4,11 +4,9 @@ on:
   push:
     branches:
       - main
-
-if: ${{ github.event.head_commit.message }} == *"[dev]"* || ${{ github.event.head_commit.message }} == *"[ken]"*
-
 jobs:
   check-commit-message:
+    if: ${{ github.event.head_commit.message }} == *"[dev]"* || ${{ github.event.head_commit.message }} == *"[ken]"*
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
