@@ -6,7 +6,7 @@ on:
       - main
 jobs:
   check-commit-message:
-    if: ${{ github.event.head_commit.message }} == *"[dev]"* || ${{ github.event.head_commit.message }} == *"[ken]"*
+    if: ${{ github.event.head_commit.message }} == *"[dev]"*
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
