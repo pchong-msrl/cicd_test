@@ -19,9 +19,9 @@ on:
         type: string
 
 jobs:
-  check-commit-message:
+  test-github-action:
     runs-on: ubuntu-latest
-    if: "contains(github.event.head_commit.message, '[dev]')"
+    if: github.event_name == 'workflow_dispatch'
     steps:
       - name: echo input branch name
         run: echo ${{ github.event.inputs.branch }}
