@@ -6,10 +6,6 @@ on:
       - dev
       - master
   workflow_dispatch:
-    inputs:
-      branch:
-        description: 'Branch to build'
-        required: false
 
 
 jobs:
