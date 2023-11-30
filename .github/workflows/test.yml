@@ -5,16 +5,15 @@ on:
     branches:
       - dev
       - master
-  # workflow_dispatch:
+  workflow_dispatch:
 
 
 jobs:
   test-github-action:
     runs-on: ubuntu-latest
-    # if: github.event_name == 'workflow_dispatch'
+    if: github.event_name == 'workflow_dispatch'
     steps:
       - name: echo input branch name
         run: echo ${{ github.event.inputs.branch }}
       - name: echo branch name
         run: echo ${{ github.ref_name }}
-
